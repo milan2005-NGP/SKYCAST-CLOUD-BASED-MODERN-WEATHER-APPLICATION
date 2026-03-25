@@ -1,0 +1,250 @@
+import React, { useState } from 'react';
+import { Waves, Star, GitFork, Eye, Code, BookOpen, BarChart2, Shield, Thermometer, AlertTriangle, CheckCircle, Activity, Droplets, TrendingUp, ChevronRight } from 'lucide-react';
+
+export default function MarineDashboardDisplay() {
+  const [activeTab, setActiveTab] = useState('readme');
+
+  const stats = [
+    { icon: Star, label: 'Stars', value: '248' },
+    { icon: GitFork, label: 'Forks', value: '63' },
+    { icon: Eye, label: 'Watching', value: '18' },
+  ];
+
+  const techStack = [
+    { name: 'React', color: '#61DAFB', bg: '#0d2233' },
+    { name: 'Recharts', color: '#00C49F', bg: '#0d2a22' },
+    { name: 'Tailwind CSS', color: '#38BDF8', bg: '#0d1f33' },
+    { name: 'Lucide React', color: '#FFBB28', bg: '#2a1f0d' },
+  ];
+
+  const features = [
+    { icon: BarChart2, title: 'Pollution Tracking', desc: 'Year-by-year pollution growth analysis with 2030 targets', color: '#FF8042' },
+    { icon: Droplets, title: 'Water Quality', desc: 'Regional scores with pH and dissolved oxygen levels', color: '#0088FE' },
+    { icon: Thermometer, title: 'Temperature Anomalies', desc: 'Monthly ocean temperature vs historical baseline', color: '#00C49F' },
+    { icon: Shield, title: 'Conservation', desc: 'Marine protected areas distribution and global initiatives', color: '#8884D8' },
+  ];
+
+  const liveStats = [
+    { label: 'Water Quality Index', value: '72.8', color: '#0088FE', icon: Droplets },
+    { label: 'Pollution Level', value: '22.5M mt', color: '#FF8042', icon: AlertTriangle },
+    { label: 'Protected Ocean Area', value: '18.2%', color: '#00C49F', icon: CheckCircle },
+    { label: 'Sensor Stations', value: '1,247', color: '#FFBB28', icon: Activity },
+  ];
+
+  const files = [
+    { name: 'src/', type: 'folder' },
+    { name: 'src/components/', type: 'folder' },
+    { name: 'src/components/MarineResourcesDashboard.jsx', type: 'file' },
+    { name: 'src/App.js', type: 'file' },
+    { name: 'src/index.js', type: 'file' },
+    { name: 'public/', type: 'folder' },
+    { name: 'package.json', type: 'file' },
+    { name: 'tailwind.config.js', type: 'file' },
+    { name: 'README.md', type: 'file' },
+  ];
+
+  return (
+    <div className="min-h-screen" style={{ background: '#0d1117', fontFamily: "'Segoe UI', sans-serif" }}>
+
+      {/* GitHub-style top bar */}
+      <div style={{ background: '#161b22', borderBottom: '1px solid #30363d', padding: '12px 24px' }}>
+        <div className="flex items-center space-x-3">
+          <svg height="24" width="24" viewBox="0 0 16 16" fill="white">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <span style={{ color: '#e6edf3', fontSize: '14px' }}>YOUR_USERNAME / <strong>marine-dashboard</strong></span>
+          <span style={{ background: '#388bfd26', color: '#58a6ff', border: '1px solid #388bfd66', borderRadius: '12px', padding: '1px 8px', fontSize: '12px' }}>Public</span>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '24px' }}>
+
+        {/* Repo header */}
+        <div className="flex items-start justify-between mb-6">
+          <div>
+            <div className="flex items-center space-x-3 mb-2">
+              <Waves style={{ color: '#58a6ff', width: 28, height: 28 }} />
+              <h1 style={{ color: '#e6edf3', fontSize: '24px', fontWeight: 700 }}>Marine Water Resources Management Dashboard</h1>
+            </div>
+            <p style={{ color: '#8b949e', fontSize: '14px', marginBottom: '12px' }}>
+              🌊 Real-time marine monitoring and analytics dashboard for ocean conservation
+            </p>
+            <div className="flex items-center space-x-4">
+              {stats.map(({ icon: Icon, label, value }) => (
+                <div key={label} className="flex items-center space-x-1" style={{ color: '#8b949e', fontSize: '13px' }}>
+                  <Icon style={{ width: 14, height: 14 }} />
+                  <span style={{ color: '#e6edf3', fontWeight: 600 }}>{value}</span>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <button style={{ background: '#21262d', border: '1px solid #30363d', color: '#e6edf3', borderRadius: '6px', padding: '6px 16px', fontSize: '13px', cursor: 'pointer' }}>
+            ⭐ Star
+          </button>
+        </div>
+
+        {/* Topics */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {['react', 'recharts', 'tailwindcss', 'ocean-conservation', 'data-visualization', 'marine-dashboard', 'water-quality'].map(tag => (
+            <span key={tag} style={{ background: '#388bfd26', color: '#58a6ff', borderRadius: '12px', padding: '2px 10px', fontSize: '12px' }}>
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Tab Nav */}
+        <div className="flex space-x-1 mb-6" style={{ borderBottom: '1px solid #30363d' }}>
+          {[
+            { key: 'readme', label: '📄 README' },
+            { key: 'features', label: '🚀 Features' },
+            { key: 'structure', label: '📁 Structure' },
+            { key: 'stats', label: '📊 Live Stats' },
+          ].map(({ key, label }) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              style={{
+                padding: '8px 16px',
+                fontSize: '13px',
+                cursor: 'pointer',
+                background: 'transparent',
+                border: 'none',
+                borderBottom: activeTab === key ? '2px solid #f78166' : '2px solid transparent',
+                color: activeTab === key ? '#e6edf3' : '#8b949e',
+                fontWeight: activeTab === key ? 600 : 400,
+              }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {/* README Tab */}
+        {activeTab === 'readme' && (
+          <div style={{ background: '#161b22', border: '1px solid #30363d', borderRadius: '8px', padding: '32px' }}>
+            <div className="flex items-center space-x-3 mb-6">
+              <Waves style={{ color: '#58a6ff', width: 40, height: 40 }} />
+              <div>
+                <h2 style={{ color: '#e6edf3', fontSize: '22px', fontWeight: 700 }}>🌊 Marine Water Resources Management Dashboard</h2>
+                <p style={{ color: '#8b949e', fontSize: '13px' }}>Real-time monitoring and analytics for ocean conservation</p>
+              </div>
+            </div>
+
+            <div style={{ borderLeft: '3px solid #58a6ff', paddingLeft: '16px', marginBottom: '24px', background: '#0d2233', borderRadius: '0 6px 6px 0', padding: '16px 16px 16px 20px' }}>
+              <p style={{ color: '#cdd9e5', fontSize: '14px', lineHeight: 1.7 }}>
+                This dashboard provides a comprehensive view of global marine health indicators including pollution levels, water quality, ocean temperatures, and conservation efforts. Designed to support data-driven decision-making for ocean sustainability.
+              </p>
+            </div>
+
+            <h3 style={{ color: '#e6edf3', fontSize: '16px', fontWeight: 600, marginBottom: '12px', borderBottom: '1px solid #30363d', paddingBottom: '8px' }}>⚙️ Installation</h3>
+            <div style={{ background: '#0d1117', borderRadius: '6px', padding: '16px', fontFamily: 'monospace', fontSize: '13px', color: '#79c0ff', marginBottom: '24px' }}>
+              <div style={{ color: '#8b949e' }}># Clone the repository</div>
+              <div>git clone https://github.com/YOUR_USERNAME/marine-dashboard.git</div>
+              <div style={{ color: '#8b949e', marginTop: '8px' }}># Install dependencies</div>
+              <div>npm install</div>
+              <div style={{ color: '#8b949e', marginTop: '8px' }}># Start the development server</div>
+              <div>npm start</div>
+            </div>
+
+            <h3 style={{ color: '#e6edf3', fontSize: '16px', fontWeight: 600, marginBottom: '12px', borderBottom: '1px solid #30363d', paddingBottom: '8px' }}>🛠️ Tech Stack</h3>
+            <div className="flex flex-wrap gap-3 mb-6">
+              {techStack.map(({ name, color, bg }) => (
+                <span key={name} style={{ background: bg, color, border: `1px solid ${color}44`, borderRadius: '6px', padding: '4px 12px', fontSize: '13px', fontWeight: 600 }}>
+                  {name}
+                </span>
+              ))}
+            </div>
+
+            <h3 style={{ color: '#e6edf3', fontSize: '16px', fontWeight: 600, marginBottom: '12px', borderBottom: '1px solid #30363d', paddingBottom: '8px' }}>📊 Data Sources</h3>
+            <ul style={{ color: '#cdd9e5', fontSize: '14px', lineHeight: 2, paddingLeft: '20px' }}>
+              <li>UN Ocean Conference</li>
+              <li>NOAA – National Oceanic and Atmospheric Administration</li>
+              <li>WHO – World Health Organization</li>
+            </ul>
+
+            <div style={{ marginTop: '24px', padding: '12px 16px', background: '#0d2a1a', border: '1px solid #2ea04326', borderRadius: '6px', color: '#3fb950', fontSize: '13px' }}>
+              ✅ Last Updated: February 14, 2026 | Built for ocean conservation awareness.
+            </div>
+          </div>
+        )}
+
+        {/* Features Tab */}
+        {activeTab === 'features' && (
+          <div className="grid grid-cols-2 gap-4">
+            {features.map(({ icon: Icon, title, desc, color }) => (
+              <div key={title} style={{ background: '#161b22', border: '1px solid #30363d', borderRadius: '8px', padding: '24px', borderLeft: `4px solid ${color}` }}>
+                <div className="flex items-center space-x-3 mb-3">
+                  <div style={{ background: color + '22', borderRadius: '8px', padding: '8px' }}>
+                    <Icon style={{ color, width: 20, height: 20 }} />
+                  </div>
+                  <h3 style={{ color: '#e6edf3', fontSize: '16px', fontWeight: 600 }}>{title}</h3>
+                </div>
+                <p style={{ color: '#8b949e', fontSize: '14px', lineHeight: 1.6 }}>{desc}</p>
+                <div className="flex items-center mt-4" style={{ color: '#58a6ff', fontSize: '13px', cursor: 'pointer' }}>
+                  <span>View in dashboard</span>
+                  <ChevronRight style={{ width: 14, height: 14, marginLeft: 4 }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Structure Tab */}
+        {activeTab === 'structure' && (
+          <div style={{ background: '#161b22', border: '1px solid #30363d', borderRadius: '8px', overflow: 'hidden' }}>
+            <div style={{ padding: '12px 16px', borderBottom: '1px solid #30363d', background: '#21262d' }}>
+              <span style={{ color: '#8b949e', fontSize: '13px' }}>📁 Project Structure</span>
+            </div>
+            {files.map(({ name, type }, idx) => (
+              <div
+                key={idx}
+                className="flex items-center space-x-3"
+                style={{ padding: '10px 16px', borderBottom: '1px solid #21262d', cursor: 'pointer' }}
+              >
+                <span style={{ fontSize: '16px' }}>{type === 'folder' ? '📁' : name.endsWith('.jsx') ? '⚛️' : name.endsWith('.json') ? '📦' : name.endsWith('.md') ? '📄' : '📝'}</span>
+                <span style={{ color: type === 'folder' ? '#58a6ff' : '#e6edf3', fontSize: '14px' }}>{name}</span>
+                <span style={{ marginLeft: 'auto', color: '#8b949e', fontSize: '12px' }}>
+                  {type === 'folder' ? '' : 'Updated Feb 14, 2026'}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Stats Tab */}
+        {activeTab === 'stats' && (
+          <div>
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              {liveStats.map(({ label, value, color, icon: Icon }) => (
+                <div key={label} style={{ background: '#161b22', border: `1px solid ${color}44`, borderRadius: '8px', padding: '24px', borderLeft: `4px solid ${color}` }}>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p style={{ color: '#8b949e', fontSize: '13px', marginBottom: '8px' }}>{label}</p>
+                      <p style={{ color, fontSize: '28px', fontWeight: 700 }}>{value}</p>
+                    </div>
+                    <div style={{ background: color + '22', borderRadius: '50%', padding: '12px' }}>
+                      <Icon style={{ color, width: 24, height: 24 }} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ background: '#161b22', border: '1px solid #30363d', borderRadius: '8px', padding: '20px', textAlign: 'center' }}>
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <div style={{ width: 10, height: 10, background: '#3fb950', borderRadius: '50%' }} className="animate-pulse" />
+                <span style={{ color: '#3fb950', fontSize: '14px', fontWeight: 600 }}>Live Monitoring Active</span>
+              </div>
+              <p style={{ color: '#8b949e', fontSize: '13px' }}>Data Sources: UN Ocean Conference · NOAA · WHO</p>
+            </div>
+          </div>
+        )}
+
+        {/* Footer */}
+        <div style={{ marginTop: '32px', textAlign: 'center', color: '#8b949e', fontSize: '12px' }}>
+          <p>© 2026 YOUR_USERNAME · MIT License · Built with React & Recharts</p>
+        </div>
+      </div>
+    </div>
+  );
+}
