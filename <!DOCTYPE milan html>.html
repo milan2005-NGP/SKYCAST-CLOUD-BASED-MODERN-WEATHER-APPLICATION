@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast - Modern Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <h1>SkyCast</h1>
+            </div>
+            <div class="search-bar">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="city-input" placeholder="Search city..." value="Coimbatore">
+            </div>
+        </header>
+
+        <main>
+            <div class="current-weather glass-panel">
+                <h2 id="city-name">Loading...</h2>
+                <p id="current-date" class="date-text">Loading date...</p>
+                
+                <div class="temp-container">
+                    <h1 id="current-temp">--°</h1>
+                    <div class="condition">
+                        <i id="current-icon" class="fa-solid fa-sun"></i>
+                        <span id="current-condition">Clear Sky</span>
+                        <p id="high-low">H:--° L:--°</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card glass-panel">
+                    <span class="metric-title">WIND SPEED</span>
+                    <div class="metric-value"><i class="fa-solid fa-wind"></i> <span id="wind-speed">-- km/h</span></div>
+                </div>
+                <div class="metric-card glass-panel">
+                    <span class="metric-title">HUMIDITY</span>
+                    <div class="metric-value"><i class="fa-solid fa-droplet"></i> <span id="humidity">--%</span></div>
+                </div>
+                <div class="metric-card glass-panel">
+                    <span class="metric-title">UV INDEX</span>
+                    <div class="metric-value"><i class="fa-solid fa-sun"></i> <span id="uv-index">--</span></div>
+                </div>
+                <div class="metric-card glass-panel">
+                    <span class="metric-title">VISIBILITY</span>
+                    <div class="metric-value"><i class="fa-solid fa-eye"></i> <span id="visibility">-- km</span></div>
+                </div>
+            </div>
+        </main>
+
+        <section class="forecast-section">
+            <h3>7-Day Forecast</h3>
+            <div class="forecast-container" id="forecast-container">
+                </div>
+        </section>
+
+        <footer>
+            <p>Data provided by <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
